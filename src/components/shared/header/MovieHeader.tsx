@@ -1,6 +1,6 @@
 export const MovieHeader = () => {
   return (
-    <header className="fixed flex justify-between items-center w-full px-16 py-5 h-[5em] rounded-xs dark:bg-[#0c0c0d] bg-[#f8f8f8] z-10">
+    <header className="fixed flex justify-between items-center w-full px-16 py-5 h-[5em] rounded-xs dark:bg-[#0c0c0d] bg-[#f8f8f8] z-20">
       {/* Logo */}
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-[25px] leading-7 font-bold tracking-wider">
