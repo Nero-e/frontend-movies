@@ -11,18 +11,18 @@ export const MovieHeader = () => {
         </span>
       </div>
       <div className="flex text-lg leading-[14px] font-semibold space-x-16">
-          <a href="/" className="">
+          <a href="/" className="hover:text-[#D81159]">
             Inicio
           </a>
-          <a href="/" className="">
-            Lsita de peliculas
+          <a href="/" className="hover:text-[#D81159]">
+            Lista de películas
           </a>
         </div>
       <div className="space-x-2.5">
         {/* Search bar */}
         {/* <input type="text" id="voice-search" className=" border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-[#0050ff] focus:border-[#0050ff] w-full py-2 px-2.5" /> */}
         <button className="">Ingresar</button>
-        <button className="px-4 py-2 bg-[#F3F4FA] cursor-pointer hover:bg-amber-300">Registar</button>
+        <button className="px-4 py-1.5 bg-[#f1f0f1] hover:bg-[#D81159] hover:text-[#f1f0f1] rounded-lg cursor-pointer">Registar</button>
       </div>
     </header>
   );
