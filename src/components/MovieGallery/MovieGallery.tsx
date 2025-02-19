@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
 
 import {
   useGetMoviesListQuery,
@@ -10,9 +11,8 @@ import type { Movie } from "../../../types/movie";
 import { setSearchQuery } from "../../app/redux/searchSlice";
 
 export const MovieGallery = () => {
-  // const [name, setName] = useState<string>("");
-  const dispatch = useDispatch();
-  const name = useSelector((state) => state.search.query);
+  const dispatch = useAppDispatch();
+  const name = useAppSelector((state) => state.search.query);
 
   const { data: moviesData, isError: isMovieError } = useGetMoviesListQuery();
   const { data: searchData, isError: isSearchError } = useGetSearchQuery(name, {

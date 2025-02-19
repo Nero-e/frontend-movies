@@ -1,19 +1,15 @@
-import { useSelector, useDispatch  } from "react-redux";
 import { setSearchQuery } from "../../../app/redux/searchSlice";
+import { useAppDispatch } from "../../../hooks/useAppDispatch";
+import { useAppSelector } from "../../../hooks/useAppSelector";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
 export const SearchBar = ({ onSearch }: SearchBarProps) => {
-  // const [search, setSearch] = useState<string>("");
 
-  const dispatch = useDispatch();
-  const search = useSelector((state) => state.search.query);
-
-  // const handleSearchClick = () => {
-  //   onSearch(search);
-  // };
+  const dispatch = useAppDispatch();
+  const search = useAppSelector((state) => state.search.query);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
