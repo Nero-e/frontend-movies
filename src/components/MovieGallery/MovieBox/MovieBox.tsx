@@ -28,11 +28,13 @@ export const MovieBox = (props: MovieBoxProps) => {
           alt={title}
           className="w-full h-full block object-cover rounded-[.8rem] pb-5"
         />
-        <div className=" flex-col w-full h-full max-h-[200px] ">
-          <h2 className="text-3xl tracking-wide font-bold">
+        <div className=" flex-col w-full h-full max-h-[200px] text-[#0c0c0d]">
+          <h2 className="text-3xl tracking-wide font-bold hover:underline">
             <Link to={`movie/${id}`}>{title}</Link>
           </h2>
-          <span className="text-slate-400 font-medium">{releaseDate}</span>
+          <span className="text-slate-400 font-medium">
+            ( {releaseDate.split("-")[0]} )
+          </span>
           <div className="flex justify-end">
             <div className="font-black flex flex-col">
               <span className="text-yellow-500 text-lg">Rating</span>

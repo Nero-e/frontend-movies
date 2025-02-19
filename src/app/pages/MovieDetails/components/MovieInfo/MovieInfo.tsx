@@ -1,0 +1,57 @@
+type MovieInfoProps = {
+  overview: string;
+  runtime: string;
+  originalTitle: string;
+  originalLanguage: string;
+  genres: [{ id: number; name: string }];
+};
+
+export const MovieInfo = (props: MovieInfoProps) => {
+  const { overview, runtime, originalTitle, originalLanguage, genres } = props;
+
+  return (
+    <div className="flex flex-col w-full max-h-full bg-[#f1f0f1] p-10 rounded-[.8rem] shadow-sm">
+      <div className="flex flex-row">
+        {/* Sinopsis */}
+        <div className="px-5">
+          <p className="text-gray-600 text-xl">
+            {overview || "Sin sinopsis disponible."}
+          </p>
+        </div>
+
+        {/* Mas detalles */}
+        <div className="border-l border-[#202020]/20 px-5 w-full">
+          <div className="flex flex-col w-full space-y-5 text-[#0c0c0d]">
+            <div>
+              <h3 className="font-bold">Duración</h3>
+              <p>⏳ {runtime ? `${runtime} minutos` : "No disponible"}</p>
+            </div>
+            <div>
+              <h3 className="font-bold">Título Original</h3>
+              <p>{originalTitle || "No disponible"}</p>
+            </div>
+            <div>
+              <h3 className="font-bold">Idioma Original</h3>
+              <p>{originalLanguage || "No disponible"}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* tags */}
+      <div className="flex flex-row gap-2 px-5 pt-10">
+          {genres &&
+            genres.map((genre: { id: number; name: string }) => (
+              <div
+                key={genre.id}
+                className="px-[7px] py-[5px] rounded-[7px] border-[1px] border-[#202020]/20 text-[#202020] opacity-80"
+              >
+                <h6 className="text-[12px] uppercase tracking-wider">
+                  {genre.name}
+                </h6>
+              </div>
+            ))}
+        </div>
+    </div>
+  );
+};

@@ -1,4 +1,4 @@
-export const MovieHeader = () => {
+export const Header = () => {
   return (
     <header className="fixed flex justify-between items-center w-full px-16 py-5 h-[5em] rounded-xs dark:bg-[#0c0c0d] bg-[#f8f8f8] z-20">
       {/* Logo */}

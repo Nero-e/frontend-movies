@@ -1,1 +1,1 @@
-export { MovieHeader } from "./MovieHeader";
+export { Header } from "./Header";
