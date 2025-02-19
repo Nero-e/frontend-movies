@@ -22,8 +22,8 @@ export const moviesApi = createApi({
         return response.results[randomId] || null;
       },
     }),
-    getMoviesList: builder.query<Movies | null, void>({
-      query: () => "/movie/popular?language=es-ES",
+    getMoviesList: builder.query<Movies | null, number>({
+      query: (page = 1) => `/movie/popular?language=es-ES&page=${page}`,
     }),
     getMovieById: builder.query<Movie | null, number>({
       query: (id) => `/movie/${id}?language=es-ES`,
