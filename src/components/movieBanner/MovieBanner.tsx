@@ -16,9 +16,9 @@ export const MovieBanner = () => {
           <h1 className="text-5xl font-bold hover:underline">
             <Link to={`movie/${data?.id}`}>{data?.title}</Link>
           </h1>
-          <p className="text-xl text-gray-600">
-            ({data?.release_date.split("-")[0]})
-          </p>
+          <span className="text-xl pt-[.2em] text-slate-400 ">
+            {data?.release_date ? data?.release_date.split("-")[0] : null}
+          </span>
           <div className="absolute top-[4em] right-[4em] text-[#f8f8f8] font-bold">
             <p className="text-4xl">⭐ {score}</p>
           </div>

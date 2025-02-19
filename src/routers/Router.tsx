@@ -1,9 +1,12 @@
-// import { Suspense } from "react";
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import MovieDetails from "../app/pages/MovieDetails/MovieDetails";
-import Home from "../app/pages/Home";
 import { MainLayout } from "../components/shared/layout";
+
+
+const Home = lazy(() => import("../app/pages/Home"));
+const MovieDetails = lazy(() => import("../app/pages/MovieDetails/MovieDetails"));
+
 
 const AppRoutes = () => {
   return (

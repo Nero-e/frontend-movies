@@ -32,8 +32,8 @@ export const MovieBox = (props: MovieBoxProps) => {
           <h2 className="text-3xl tracking-wide font-bold hover:underline">
             <Link to={`movie/${id}`}>{title}</Link>
           </h2>
-          <span className="text-slate-400 font-medium">
-            ( {releaseDate.split("-")[0]} )
+          <span className="text-lg pt-[.2em] text-slate-400 ">
+            {releaseDate ? releaseDate.split("-")[0] : null}
           </span>
           <div className="flex justify-end">
             <div className="font-black flex flex-col">

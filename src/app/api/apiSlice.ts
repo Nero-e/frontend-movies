@@ -28,6 +28,9 @@ export const moviesApi = createApi({
     getMovieById: builder.query<Movie | null, number>({
       query: (id) => `/movie/${id}?language=es-ES`,
     }),
+    getSearch: builder.query<Movies | null, string>({
+      query: (query) => `/search/movie?query=${query}&language=es-ES`,
+    }),
   }),
 });
 
@@ -35,4 +38,5 @@ export const {
   useGetRandomMovieQuery,
   useGetMoviesListQuery,
   useGetMovieByIdQuery,
+  useGetSearchQuery,
 } = moviesApi;

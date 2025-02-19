@@ -11,16 +11,16 @@ export const MovieInfo = (props: MovieInfoProps) => {
 
   return (
     <div className="flex flex-col w-full max-h-full bg-[#f1f0f1] p-10 rounded-[.8rem] shadow-sm">
-      <div className="flex flex-row">
+      <div className="flex flex-row w-full">
         {/* Sinopsis */}
-        <div className="px-5">
+        <div className="px-5 w-[80%]">
           <p className="text-gray-600 text-xl">
             {overview || "Sin sinopsis disponible."}
           </p>
         </div>
 
         {/* Mas detalles */}
-        <div className="border-l border-[#202020]/20 px-5 w-full">
+        <div className="border-l border-[#202020]/20 px-5">
           <div className="flex flex-col w-full space-y-5 text-[#0c0c0d]">
             <div>
               <h3 className="font-bold">Duración</h3>
@@ -40,18 +40,18 @@ export const MovieInfo = (props: MovieInfoProps) => {
 
       {/* tags */}
       <div className="flex flex-row gap-2 px-5 pt-10">
-          {genres &&
-            genres.map((genre: { id: number; name: string }) => (
-              <div
-                key={genre.id}
-                className="px-[7px] py-[5px] rounded-[7px] border-[1px] border-[#202020]/20 text-[#202020] opacity-80"
-              >
-                <h6 className="text-[12px] uppercase tracking-wider">
-                  {genre.name}
-                </h6>
-              </div>
-            ))}
-        </div>
+        {genres &&
+          genres.map((genre: { id: number; name: string }) => (
+            <div
+              key={genre.id}
+              className="px-[7px] py-[5px] rounded-[7px] border-[1px] border-[#202020]/20 text-[#202020] opacity-80"
+            >
+              <h6 className="text-[12px] uppercase tracking-wider">
+                {genre.name}
+              </h6>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
