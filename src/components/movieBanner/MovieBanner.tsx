@@ -3,18 +3,22 @@ import { useGetRandomMovieQuery } from "../../app/api/apiSlice";
 export const MovieBanner = () => {
   const { data } = useGetRandomMovieQuery();
   return (
-    <section className="w-[1800px] h-[500px] overflow-hidden">
-      <figure className="relative w-full h-full aspect-video">
-        <img
-          src={`https://image.tmdb.org/t/p/original${data?.backdrop_path}`}
-          alt="Movie Banner"
-          className="relative w-full h-full object-cover object-center"
-        />
-        {/* capa oscura */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
-        {/* detalles */}
-        <div className="absolute bottom-8 left-8 text-white z-10">
-          <h2 className="text-5xl font-bold">{data?.title}</h2>
+    <section className="flex flex-col p-[1vw]">
+      <figure className="p-[1px] w-[1800px] h-[500px]">
+        <div className="flex flex-col overflow-hidden w-full h-full transition-all duration-500">
+          <div className="absolute p-8 text-center z-10">
+            <h2 className="mb-1 text-4xl font-medium tracking-wider text-[#f8f8f8]">
+              {data?.title}
+            </h2>
+          </div>
+          <div className="relative flex justify-center items-center mt-[20em] w-[1800px] h-[500px] shadow-2xl">
+            <div className="absolute flex flex-col items-center justify-center w-full overflow-hidden">
+              <img
+                src={`https://image.tmdb.org/t/p/original${data?.backdrop_path}`}
+                alt="About me"
+              />
+            </div>
+          </div>
         </div>
       </figure>
     </section>
