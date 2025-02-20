@@ -3,11 +3,12 @@ import { MovieGallery } from "../../components/MovieGallery";
 
 export default function Home() {
   return (
-    <div className="p-[5em]">
+    <div className="">
       {/* Contenido */}
       <main className="flex flex-col items-center">
         {/* banner */}
-        <MovieBanner />
+        <div className="pt-[5em]"><MovieBanner /></div>
+        
         {/* Galleria de pelis */}
         <MovieGallery />
       </main>

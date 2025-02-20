@@ -10,25 +10,30 @@ import {
 } from "../../app/api/apiSlice";
 import { MovieBox } from "./MovieBox/MovieBox";
 import { SearchBar } from "../Search/SearchBar";
-import { setSearchQuery } from "../../app/redux/searchSlice";
-import { addMovies, nextPage } from "../../app/redux/moviesSlice";
+import { setSearchQuery } from "../../app/redux/features/searchSlice";
+import { addMovies, nextPage } from "../../app/redux/features/moviesSlice";
+import { FilterBox } from "../FiltersBox";
 
 export const MovieGallery = () => {
   const dispatch = useAppDispatch();
   const searchQuery = useAppSelector((state) => state.search.query);
-
-  const { page, movies } = useAppSelector((state) => state.movies);
-  console.log("pagina " + page);
-
-  const { data: moviesData, isError: isMovieError } =
-    useGetMoviesListQuery(page);
+  const { page, movies, genre, year, rating } = useAppSelector(
+    (state) => state.movies
+  );
+  // hock lista de peliculas
+  const { data: moviesData, isError: isMovieError } = useGetMoviesListQuery({
+    page,
+    genre,
+    year,
+    rating,
+  });
+  // hook buscador de peliculas
   const { data: searchData, isError: isSearchError } = useGetSearchQuery(
     searchQuery,
     {
       skip: !searchQuery,
     }
   );
-
   useEffect(() => {
     if (moviesData?.results) {
       dispatch(addMovies(moviesData.results));
@@ -55,11 +60,14 @@ export const MovieGallery = () => {
       {!isMovieError || !isSearchError ? (
         <div className="w-full h-full max-w-[1600px] mx-auto space-y-6">
           {/* Componente de barra de búsqueda */}
-          <SearchBar onSearch={handleSearch} />
+          <div className="pb-10 space-y-5">
+            <SearchBar onSearch={handleSearch} />
+            <FilterBox />
+          </div>
 
           {/* Si no hay resultados en la búsqueda */}
           {searchQuery.length > 0 && searchData?.results?.length === 0 && (
-            <p className="text-white text-center text-xl">
+            <p className="text-center text-xl">
               😢 No se encontraron resultados para "{searchQuery}".
             </p>
           )}
@@ -70,13 +78,13 @@ export const MovieGallery = () => {
             next={loadMoreMovies}
             hasMore={moviesList.length > 0 && !searchQuery}
             loader={
-              <div className="text-[#f1f0f1] text-center text-2xl">
+              <div className="text-center text-2xl">
                 Cargando...
               </div>
             }
           >
             {/* Lista de películas */}
-            <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 md:grid-rows-4 xl:grid-cols-3 xl:grid-rows-3 gap-6">
+            <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md:grid-rows-2 lg:grid-cols-2 2xl:grid-cols-3 xl:grid-rows-3 gap-6">
               {moviesList
                 ?.filter((movie) => movie.poster_path)
                 .map((movie) => <MovieBox key={movie.id} {...movie} />)}

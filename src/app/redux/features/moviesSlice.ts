@@ -1,14 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { Movie } from "../../../types/movie";
+import type { Movie } from "../../../../types/movie";
 
 interface MoviesState {
   movies: Movie[];
   page: number;
+  genre?: number | null;
+  year?: number;
+  rating?: number;
 }
 
 const initialState: MoviesState = {
   movies: [],
   page: 1,
+  genre: null,
+  year: undefined,
+  rating: undefined,
 };
 
 export const moviesSlice = createSlice({
@@ -28,8 +34,17 @@ export const moviesSlice = createSlice({
       state.movies = [];
       state.page = 1;
     },
+    setFilters: (
+      state,
+      action: PayloadAction<Partial<MoviesState>>
+    ) => {
+      state.genre = action.payload.genre;
+      state.year = action.payload.year;
+      state.rating = action.payload.rating;
+      state.page = 1;
+    },
   },
 });
 
-export const { addMovies, nextPage, resetMovies } = moviesSlice.actions;
+export const { addMovies, nextPage, resetMovies, setFilters } = moviesSlice.actions;
 export default moviesSlice.reducer;

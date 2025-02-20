@@ -21,14 +21,14 @@ export const MovieBox = (props: MovieBoxProps) => {
   const score = parseFloat(vote_average).toFixed(1);
 
   return (
-    <div className="bg-[#f8f8f8] rounded-[.8rem] p-[2rem]">
+    <div className="bg-[#f8f8f8] dark:bg-transparent dark:border-[#474747] dark:border rounded-[.8rem] p-[2rem]">
       <div className="relative">
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster}`}
           alt={title}
           className="w-full h-full block object-cover rounded-[.8rem] pb-5"
         />
-        <div className=" flex-col w-full h-full max-h-[200px] text-[#0c0c0d]">
+        <div className=" flex-col w-full h-full max-h-[200px]">
           <h2 className="text-3xl tracking-wide font-bold hover:underline">
             <Link to={`movie/${id}`}>{title}</Link>
           </h2>
@@ -38,7 +38,7 @@ export const MovieBox = (props: MovieBoxProps) => {
           <div className="flex justify-end">
             <div className="font-black flex flex-col">
               <span className="text-yellow-500 text-lg">Rating</span>
-              <span className="text-xl flex gap-x-1 items-center font-medium group-hover:text-yellow-600">
+              <span className="text-xl flex gap-x-1 items-center font-medium">
                 {score}
                 <svg
                   width="32px"

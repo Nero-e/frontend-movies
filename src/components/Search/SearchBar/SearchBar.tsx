@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { setSearchQuery } from "../../../app/redux/searchSlice";
+import { setSearchQuery } from "../../../app/redux/features/searchSlice";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import { useDebounce } from "../../../hooks/useDebounce";
@@ -10,7 +10,6 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({ onSearch }: SearchBarProps) => {
-
   const dispatch = useAppDispatch();
   const search = useAppSelector((state) => state.search.query);
 
@@ -24,8 +23,6 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // dispatch(setSearchQuery(value));
-    // onSearch(value === "" ? "" : value);
     setInputValue(value);
   };
 
@@ -37,17 +34,9 @@ export const SearchBar = ({ onSearch }: SearchBarProps) => {
           value={inputValue}
           onChange={handleInputChange}
           placeholder="Buscar película..."
-          className="w-full bg-[#f1f0f1]/20 placeholder:text-[#f1f0f1]/50 text-[#f1f0f1] text-xl border-2 border-[#f1f0f1] rounded-[.5em] p-5 transition duration-300 ease focus:outline-none focus:border-[#D81159] hover:border-[#D81159] shadow-sm focus:shadow"
+          className="w-full bg-[#f1f0f1]/10 text-[#0c0c0d] dark:text-[#f1f0f1] placeholder:text-[#0c0c0d]/50 dark:placeholder:text-[#f1f0f1]/50  text-lg border-4 border-[#0c0c0d] dark:border-[#f1f0f1] rounded-[.5em] p-2 transition duration-300 ease focus:outline-none focus:border-[#D81159] hover:border-[#D81159] shadow-sm focus:shadow"
         />
       </div>
-      {/* 
-      <button
-        type="button"
-        onClick={handleSearchClick}
-        className="px-4 py-1.5 bg-[#f1f0f1] hover:bg-[#D81159] hover:text-[#f1f0f1] rounded-lg cursor-pointer"
-      >
-        🔍 Buscar
-      </button> */}
     </div>
   );
 };

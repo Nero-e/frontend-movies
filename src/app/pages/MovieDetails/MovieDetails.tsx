@@ -33,7 +33,7 @@ function MovieDetails() {
       {movie && (
         <section className="flex w-full h-full p-5 justify-center pt-[5em]">
           <div className="flex flex-col w-[1400px] min-w-[400px] h-full py-16">
-            <div className="bg-[#f8f8f8] rounded-[.8rem]">
+            <div className="bg-[#f8f8f8] dark:bg-[#0d0d0e] rounded-[.8rem] dark:shadow-2xl">
               {/* Imagen Principal */}
               <MovieHeader
                 title={movie.title}
