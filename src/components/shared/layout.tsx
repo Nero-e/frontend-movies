@@ -15,7 +15,7 @@ export const MainLayout = () => {
       <Header />
       <Outlet />
       <button onClick={handleChange} className="fixed bottom-16 right-16 rounded-full font-semibold tracking-wide text-[#f1f0f1] dark:text-[#0c0c0d] cursor-pointer bg-[#0c0c0d] dark:bg-[#f8f8f8] aspect-square w-14 z-10">
-        {isDark  ? "DRK": "LGT"}
+        {!isDark  ? "DRK": "LGT"}
       </button>
     </div>
   );

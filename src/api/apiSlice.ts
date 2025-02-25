@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Movie } from "../../../types/movie";
-import type { Movies } from "../../../types/movies";
+import type { Movie } from "../../types/movie";
+import type { Movies } from "../../types/movies";
 
 export const moviesApi = createApi({
   reducerPath: "TMDBMovie",
@@ -27,7 +27,7 @@ export const moviesApi = createApi({
     // }),
     getMoviesList: builder.query<
       Movies | null,
-      { page: number; genre?: number | null; year?: number; rating?: number }
+      { page: number; genre?: number | null; year?: number | null; rating?: number }
     >({
       query: ({ page, genre, year, rating }) => {
         let url = `/discover/movie?language=es-ES&page=${page}`;

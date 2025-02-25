@@ -1,4 +1,4 @@
-import { TagBox } from "../../../../../components/Tag/TagBox";
+import { TagBox } from "../../../../components/Tag/TagBox";
 
 type MovieInfoProps = {
   overview: string;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { useGetRandomMovieQuery } from "../../app/api/apiSlice";
+import { useGetRandomMovieQuery } from "../../api/apiSlice";
 
 export const MovieBanner = () => {
   const { data } = useGetRandomMovieQuery();

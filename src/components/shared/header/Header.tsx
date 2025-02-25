@@ -11,7 +11,7 @@ export const Header = () => {
         <div className="flex flex-col items-center">
           <a href="/">
             <h1 className="text-[22px] md:text-[25px] font-bold tracking-wider">
-              Candela Soft
+              Frontend
             </h1>
             <span className="text-xs font-bold tracking-[0.15em] text-[#D81159]">
               películas

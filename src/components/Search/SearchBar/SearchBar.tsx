@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { setSearchQuery } from "../../../app/redux/features/searchSlice";
+import { setSearchQuery } from "../../../features/searchSlice";
 import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import { useDebounce } from "../../../hooks/useDebounce";

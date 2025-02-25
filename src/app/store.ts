@@ -2,8 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 
 import { moviesApi } from "../api/apiSlice";
-import searchReducer from "./features/searchSlice";
-import MoviesReducer from "./features/moviesSlice";
+import searchReducer from "../features/searchSlice";
+import MoviesReducer from "../features/moviesSlice";
 // import FiltersReducer from "./features/filtersSlice";
 
 export const store = configureStore({

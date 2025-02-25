@@ -4,14 +4,11 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 
-import {
-  useGetMoviesListQuery,
-  useGetSearchQuery,
-} from "../../app/api/apiSlice";
+import { useGetMoviesListQuery, useGetSearchQuery } from "../../api/apiSlice";
 import { MovieBox } from "./MovieBox/MovieBox";
 import { SearchBar } from "../Search/SearchBar";
-import { setSearchQuery } from "../../app/redux/features/searchSlice";
-import { addMovies, nextPage } from "../../app/redux/features/moviesSlice";
+import { setSearchQuery } from "../../features/searchSlice";
+import { addMovies, nextPage } from "../../features/moviesSlice";
 import { FilterBox } from "../FiltersBox";
 
 export const MovieGallery = () => {
@@ -77,11 +74,7 @@ export const MovieGallery = () => {
             dataLength={moviesList.length}
             next={loadMoreMovies}
             hasMore={moviesList.length > 0 && !searchQuery}
-            loader={
-              <div className="text-center text-2xl">
-                Cargando...
-              </div>
-            }
+            loader={<div className="text-center text-2xl">Cargando...</div>}
           >
             {/* Lista de películas */}
             <div className="grid xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 md:grid-rows-2 lg:grid-cols-2 2xl:grid-cols-3 xl:grid-rows-3 gap-6">

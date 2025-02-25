@@ -1,4 +1,4 @@
-# Candela Soft Movie
+# Frontend Movies (tmdb)
 
 ## Tecnologías Utilizadas
 

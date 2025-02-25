@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { Movie } from "../../../../types/movie";
+import type { Movie } from "../../types/movie";
 
 interface MoviesState {
   movies: Movie[];
   page: number;
   genre?: number | null;
-  year?: number;
+  year?: number | null;
   rating?: number;
 }
 
@@ -13,7 +13,7 @@ const initialState: MoviesState = {
   movies: [],
   page: 1,
   genre: null,
-  year: undefined,
+  year: null,
   rating: undefined,
 };
 

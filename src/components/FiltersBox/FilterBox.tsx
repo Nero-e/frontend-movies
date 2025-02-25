@@ -1,16 +1,16 @@
-import { useGetGenresListQuery } from "../../app/api/apiSlice";
+import { useGetGenresListQuery } from "../../api/apiSlice";
 import { TagBox } from "../Tag/TagBox";
 import { useAppSelector } from "../../hooks/useAppSelector";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { resetMovies, setFilters } from "../../app/redux/features/moviesSlice";
+import { resetMovies, setFilters } from "../../features/moviesSlice";
 
 export const FilterBox = () => {
   const { data: genres } = useGetGenresListQuery();
   const dispatch = useAppDispatch();
-  const selectedGenre = useAppSelector((state) => state.movies.genre);
+  const { genre: genereData, year: yearData } = useAppSelector((state) => state.movies);
 
-  const handleFilterChange = (id: number | null) => {
-    dispatch(setFilters({ genre: id }));
+  const handleFilterChange = (id?: number | null, yearValue?: number | null ) => {
+    dispatch(setFilters({ genre: id, year: yearValue}));
     dispatch(resetMovies());
   };
 
@@ -24,9 +24,9 @@ export const FilterBox = () => {
             isSimple
             id={0}
             name="Todo"
-            isDisabled={selectedGenre === null}
-            isSelected={selectedGenre === null}
-            onClick={() => handleFilterChange(null)}
+            isDisabled={genereData === null}
+            isSelected={genereData === null}
+            onClick={() => handleFilterChange(null,yearData)}
           />
           {genres?.genres.map((genre) => (
             <TagBox
@@ -34,13 +34,50 @@ export const FilterBox = () => {
               key={genre.id}
               id={genre.id}
               name={genre.name}
-              isDisabled={selectedGenre === genre.id}
-              isSelected={selectedGenre === genre.id}
-              onClick={() => handleFilterChange(genre.id)}
+              isDisabled={genereData === genre.id}
+              isSelected={genereData === genre.id}
+              onClick={() => handleFilterChange(genre.id, yearData)}
             />
           ))}
         </div>
       </div>
+      <div className="flex flex-row gap-2">
+        <h2 className="text-md font-semibold pr-5 dark:text-[#f1f0f1]">Año</h2>
+          <div className="flex flex-wrap gap-2">
+            <TagBox
+              isSimple
+              id={0}
+              name="Todo"
+              isDisabled={false}
+              isSelected={yearData === null}
+              onClick={() => handleFilterChange(genereData,null)}
+            />
+            <TagBox
+              isSimple
+              id={2025}
+              name="2025"
+              isDisabled={false}
+              isSelected={yearData === 2025}
+              onClick={() => handleFilterChange(genereData,2025)}
+            />
+            <TagBox
+              isSimple
+              id={2024}
+              name="2024"
+              isDisabled={false}
+              isSelected={yearData === 2024}
+              onClick={() => handleFilterChange(genereData,2024)}
+            />
+            <TagBox
+              isSimple
+              id={2023}
+              name="2023"
+              isDisabled={false}
+              isSelected={yearData === 2023}
+              onClick={() => handleFilterChange(genereData,2023)}
+            />
+          </div>
+        </div>
     </div>
   );
 };

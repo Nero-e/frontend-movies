@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from "../components/shared/layout";
 
 
-const Home = lazy(() => import("../app/pages/Home"));
-const MovieDetails = lazy(() => import("../app/pages/MovieDetails/MovieDetails"));
-const ListMovies = lazy(() => import("../app/pages/ListMovies/ListMovies"));
+const Home = lazy(() => import("../pages/Home"));
+const MovieDetails = lazy(() => import("../pages/MovieDetails/MovieDetails"));
+const ListMovies = lazy(() => import("../pages/ListMovies/ListMovies"));
 
 
 const AppRoutes = () => {

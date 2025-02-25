@@ -1,5 +1,5 @@
-import { MovieBanner } from "../../components/MovieBanner";
-import { MovieGallery } from "../../components/MovieGallery";
+import { MovieBanner } from "../components/MovieBanner";
+import { MovieGallery } from "../components/MovieGallery";
 
 export default function Home() {
   return (
